@@ -1,4 +1,5 @@
 console.log("greetings from Rafal :)");
+
 class Popup {
 	constructor(clicks, resetCounter) {
         this.resetCounter = resetCounter;
@@ -35,6 +36,7 @@ class Popup {
 			},
 			{ once: true }
 		);
+
 		return x;
 	};
 
@@ -69,6 +71,7 @@ class Popup {
 			},
 			{ once: true }
 		);
+
 		return x;
 	};
 
@@ -82,6 +85,7 @@ class Popup {
 		document.body.appendChild(this.popup);
 	};
 }
+
 class App {
 	constructor(appConfig) {
 		this.clicks = 0;
@@ -158,7 +162,6 @@ class App {
 		this.clicks += 1;
 		this.popup = new Popup(this.clicks, this.resetClicks);
 	};
-
 }
 
 const appConfig = {
@@ -171,4 +174,5 @@ const appConfig = {
 
 const app = new App(appConfig);
 const app2 = new App(appConfig);
+
 console.log(app);
