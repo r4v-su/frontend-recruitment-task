@@ -19,20 +19,48 @@ class Popup {
 		}
 		this.appendPopup();
 	}
+
 	createBackdrop = () => {
+		console.log(this)
 		const backdrop = document.createElement("div");
 		backdrop.classList.add("backdrop");
-
+		//backdrop.onclick = () => {this.closeModal()};
+		backdrop.addEventListener(
+			"click",
+			(e) => {
+				e.preventDefault();
+				this.closeModal();
+			},
+			{ once: true }
+		);
 		return backdrop;
 	};
+
 	createCloseButton = () => {
 		const x = document.createElement("div");
 		x.classList.add("x");
+		x.title = 'Close';
 		x.addEventListener(
 			"click",
 			(e) => {
 				e.preventDefault();
 				this.closeModal();
+			},
+			{ once: true }
+		);
+
+		return x;
+	};
+
+	createResetButton = () => {
+		const x = document.createElement("div");
+		x.classList.add("popup-reset");
+		x.title = 'Reset counter';
+		x.addEventListener(
+			"click",
+			() => {
+				this.resetCounter();
+                this.closeModal();
 			},
 			{ once: true }
 		);
@@ -57,22 +85,6 @@ class Popup {
 		popup.appendChild(popupText);
 
 		return popup;
-	};
-
-	createResetButton = () => {
-		const x = document.createElement("button");
-		x.classList.add("popup-reset-btn");
-        x.innerText = 'reset';
-		x.addEventListener(
-			"click",
-			() => {
-				this.resetCounter();
-                this.closeModal();
-			},
-			{ once: true }
-		);
-
-		return x;
 	};
 
 	closeModal = () => {
@@ -140,7 +152,6 @@ class App {
 		const appBtn = document.createElement("button");
 		appBtn.classList.add("app-btn");
 		appBtn.addEventListener("mouseup", () => {
-            console.log(this)
 			this.incrementClicks();
 		});
 

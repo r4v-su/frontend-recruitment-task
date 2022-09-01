@@ -1,173 +1,114 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-border-collapse: collapse;
-border-spacing: 0;
-}
-
-*{
+@import "reset.css";
+* {
     box-sizing: border-box;
 }
-
 .app-container {
-padding: 3.5rem;
-display: block;
-width: 100%;
+    padding: 3.5rem;
+    display: block;
+    width: 100%;
 }
-
 .module {
-width: 100%;
-display: flex;
-justify-content: center;
-align-content: center;
-align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
-
-.paragraph-box{
-margin-left: 5.5rem;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
+.paragraph-box {
+    margin-left: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
-
-.paragraph-title{
-margin-top:20px;
-font-family: 'Roboto', sans-serif;
-font-weight: 700;
-font-size: 42px;
-color: #121212;
+.paragraph-title {
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    color: #121212;
 }
-
 .app-btn {
-all: unset;
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 16px 40px;
-gap: 10px;
-color: #FFFFFF;
-background: #E4C1AE;
-border-radius: 32px;
-cursor: pointer;
-margin-bottom: 50px;
-}
-
-.app-btn:hover{
-opacity: 0.7;
-}
-.app-btn::after{
-content: "Button";
-font-family: 'Roboto', sans-serif;
-}
-
-.popup-reset-btn {
     all: unset;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 16px 40px;
     gap: 10px;
-    color: #FFFFFF;
-    background: #E4C1AE;
+    color: #ffffff;
+    background: #e4c1ae;
     border-radius: 32px;
     cursor: pointer;
-    margin-top: 50px;
-
+    margin-bottom: 50px;
 }
-
-.paragraph-paragraph{
-max-width: 380px;
-margin-top: 20px;
-margin-bottom: 20px;
-font-family: 'Roboto', sans-serif;
-font-style: normal;
-font-weight: 300;
-font-size: 16px;
-line-height: 150%;
+.app-btn:hover {
+    opacity: 0.7;
 }
-
+.app-btn::after {
+    content: "Button";
+    font-family: "Roboto", sans-serif;
+}
+.paragraph-paragraph {
+    max-width: 380px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+}
 .module {
-margin-top: 2.5rem;
-width: 100%;
-display: flex;
-justify-content: center;
-align-content: center;
-align-items: center;
-  }
-
-.popup-title{
-    font-family: 'Roboto', sans-serif;
+    margin-top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.popup-title {
+    font-family: "Roboto", sans-serif;
     margin-bottom: 2rem;
     font-size: 42px;
     font-weight: 700;
 }
-  .popup {
-    font-family: 'Roboto', sans-serif;
+.popup {
+    font-family: "Roboto", sans-serif;
     display: flex;
     box-sizing: border-box;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     background-color: white;
     text-align: center;
     width: 900px;
-    height: ;
     z-index: 10;
-    position: fixed;
+    position: absolute;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
     padding-left: 3.5rem;
     padding-right: 3.5rem;
     top: 20vh;
-    transform: translateX(20%);
-    align-content: flex-start;
+    left: 50%;
+    transform: translateX(-50%);
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .x {
+}
+.popup-reset {
+    display: block;
+    position: absolute;
+    padding: 10px;
+    transform: translate(765px, -15px);
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c-3.31 0-6.291 1.353-8.459 3.522l-2.48-2.48-1.061 7.341 7.437-.966-2.489-2.488c1.808-1.808 4.299-2.929 7.052-2.929 5.514 0 10 4.486 10 10s-4.486 10-10 10c-3.872 0-7.229-2.216-8.89-5.443l-1.717 1.046c2.012 3.803 6.005 6.397 10.607 6.397 6.627 0 12-5.373 12-12s-5.373-12-12-12z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+}
+.x {
     position: absolute;
     padding: 10px;
     transform: translate(795px, -15px);
     cursor: pointer;
-
-  }
+}
 .x:before {
     content: "";
     position: absolute;
@@ -177,14 +118,12 @@ align-items: center;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 12px;
+    width: 15px;
     height: 0;
-    border-top: 2px solid rgba(0,0,0,0.5);
+    border-top: 1px solid rgb(0, 0, 0);
     transform: rotate(45deg);
-    transform-origin:center;
-
+    transform-origin: center;
 }
-
 .x:after {
     content: "";
     position: absolute;
@@ -194,14 +133,13 @@ align-items: center;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 12px;
+    width: 15px;
     height: 0;
-    border-top: 2px solid rgba(0,0,0,0.5);
+    border-top: 1px solid rgb(0, 0, 0);
     transform: rotate(-45deg);
-    transform-origin:center;
+    transform-origin: center;
 }
-
-  .backdrop {
+.backdrop {
     position: fixed;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.75);
@@ -209,5 +147,4 @@ align-items: center;
     height: 100vh;
     top: 0;
     left: 0;
-  }
-
+}
