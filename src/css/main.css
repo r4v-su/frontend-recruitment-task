@@ -54,7 +54,7 @@
     font-family: "Roboto", sans-serif;
 }
 .paragraph-paragraph {
-    max-width: 70vw;
+    max-width: 70vw;;
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: "Roboto", sans-serif;
@@ -84,7 +84,7 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     background-color: white;
     text-align: center;
-    width: 900px;
+    width: 80vw;
     z-index: 10;
     position: absolute;
     padding-top: 2.5rem;
@@ -98,11 +98,13 @@
     align-items: flex-start;
 }
 .popup-reset {
+    cursor: pointer;
     display: block;
     position: absolute;
     padding: 10px;
-    transform: translate(765px, -15px);
     cursor: pointer;
+    top:20px;
+    right: 40px;
     background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c-3.31 0-6.291 1.353-8.459 3.522l-2.48-2.48-1.061 7.341 7.437-.966-2.489-2.488c1.808-1.808 4.299-2.929 7.052-2.929 5.514 0 10 4.486 10 10s-4.486 10-10 10c-3.872 0-7.229-2.216-8.89-5.443l-1.717 1.046c2.012 3.803 6.005 6.397 10.607 6.397 6.627 0 12-5.373 12-12s-5.373-12-12-12z'/%3E%3C/svg%3E");
     background-position: center;
     background-repeat: no-repeat;
@@ -111,8 +113,9 @@
 .x {
     position: absolute;
     padding: 10px;
-    transform: translate(795px, -15px);
     cursor: pointer;
+    top:20px;
+    right: 20px;
 }
 .x:before {
     content: "";
