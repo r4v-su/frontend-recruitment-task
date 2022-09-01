@@ -14,7 +14,7 @@ class Popup {
 
 		this.popup.appendChild(this.closeButton);
 
-		if (this.clicks >= 1) {
+		if (this.clicks > 5) {
 			this.popup.appendChild(this.resetCounterButton);
 		}
 		this.appendPopup();
@@ -24,12 +24,11 @@ class Popup {
 		console.log(this)
 		const backdrop = document.createElement("div");
 		backdrop.classList.add("backdrop");
-		//backdrop.onclick = () => {this.closeModal()};
 		backdrop.addEventListener(
 			"click",
 			(e) => {
 				e.preventDefault();
-				this.closeModal();
+				this.closePopup();
 			},
 			{ once: true }
 		);
@@ -44,7 +43,7 @@ class Popup {
 			"click",
 			(e) => {
 				e.preventDefault();
-				this.closeModal();
+				this.closePopup();
 			},
 			{ once: true }
 		);
@@ -87,7 +86,7 @@ class Popup {
 		return popup;
 	};
 
-	closeModal = () => {
+	closePopup = () => {
 		document.body.removeChild(this.backdrop);
 		document.body.removeChild(this.popup);
 	};
@@ -113,6 +112,14 @@ class App {
 
 	image = function () {
 		const img = document.createElement("img");
+		const div = document.createElement("div");
+		div.innerHTML=`
+		<picture>
+		<source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+		<source media="(min-width: 800px)" srcset="elva-800w.jpg">
+  		<img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+		</picture>`
+
 		img.classList.add("app-image");
 		img.src = appConfig.imgUrl;
 		img.width = 505;
@@ -185,5 +192,4 @@ const appConfig = {
 
 const app = new App(appConfig);
 const app2 = new App(appConfig);
-
 console.log(app);
