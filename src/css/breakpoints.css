@@ -9,19 +9,40 @@ body::before{
   width: 10vw;
   position: fixed;
   left: 90vw;
-
-
 }
   @media (min-width: 576px) {
     body::before {
       content: "SM";
     }
+    .paragraph-box {
+    align-items: flex-start;
+    }
+
   }
 
   @media (min-width: 768px) {
     body::before {
       content: "MD";
     }
+    .popup{
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+      width: 80vw;
+
+    }
+    .popup-reset {
+      right: 40px;
+    }
+    .paragraph-paragraph{
+      padding: 0;
+      max-width: 70vw;
+    }
+    .paragraph-title{
+      padding:0;
+    }
+
   }
 
   @media (min-width: 992px) {
@@ -41,7 +62,7 @@ body::before{
       max-width: 380px;
     }
     .popup {
-      max-width: 900px;
+
     }
   }
 

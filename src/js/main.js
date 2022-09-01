@@ -37,7 +37,7 @@ class Popup {
 
 	createCloseButton = () => {
 		const x = document.createElement("div");
-		x.classList.add("x");
+		x.classList.add("popup-close");
 		x.title = 'Close';
 		x.addEventListener(
 			"click",
@@ -59,7 +59,7 @@ class Popup {
 			"click",
 			() => {
 				this.resetCounter();
-                this.closeModal();
+                this.closePopup();
 			},
 			{ once: true }
 		);
@@ -112,15 +112,8 @@ class App {
 
 	image = function () {
 		const img = document.createElement("img");
-		const div = document.createElement("div");
-		div.innerHTML=`
-		<picture>
-		<source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
-		<source media="(min-width: 800px)" srcset="elva-800w.jpg">
-  		<img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
-		</picture>`
-
-		img.classList.add("app-image");
+		img.classList.add('noselect');
+		img.classList.add('app-img');
 		img.src = appConfig.imgUrl;
 		img.width = 505;
 		img.height = 330;
