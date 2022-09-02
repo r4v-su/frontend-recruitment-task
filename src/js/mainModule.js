@@ -89,7 +89,6 @@ export default class mainModule {
 	}
 	makeTable = () =>{
 		this.table = new Table(this.popup.popup);
-		this.table.appendTableToParent();
 	}
 }
 

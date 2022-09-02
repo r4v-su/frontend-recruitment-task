@@ -4,14 +4,13 @@ export default class Table {
 		this.url = "https://jsonplaceholder.typicode.com/users";
 
 		this.table = this.tableTable();
-		this.head = this.tableHead;
-		this.body = this.tableBody;
+		this.head = this.tableHead();
+		this.body = this.tableBody();
 
 		this.appendRowsToBody();
-		this.appendTableToParent();
 	}
 
-	tableHead = (() => {
+	tableHead = () => {
 		const thead = document.createElement("thead");
 		const thr = document.createElement("tr");
 		const heads = ["name", "email", "address", "company"];
@@ -23,12 +22,12 @@ export default class Table {
 		thead.appendChild(thr);
 
 		return thead;
-	})();
+	};
 
-	tableBody = (() => {
+	tableBody = () => {
 		const tbody = document.createElement("tbody");
 		return tbody;
-	})();
+	};
 
 	tableTable = () => {
 		const table = document.createElement("table");
@@ -37,10 +36,9 @@ export default class Table {
 		return table;
 	};
 
-	getData = async function () {
+	getData = function () {
 		const rows = [];
-		console.log(rows);
-		await fetch(this.url)
+		fetch(this.url)
 			.then((response) => response.json())
 			.then((people) =>
 				people.forEach((person) => {
@@ -64,20 +62,22 @@ export default class Table {
 		return rows;
 	};
 
-	appendRowsToBody = async function () {
+	appendRowsToBody = () => {
 		const loader = document.createElement("div");
 		loader.classList.add("loader");
 		this.parentDiv.appendChild(loader);
-		let rows = await this.getData();
-		setTimeout(() => {
-			this.parentDiv.removeChild(loader);
-			rows.forEach((row) => {
+
+		const getData = () => this.getData();
+		const delay = () => new Promise((resolve) => setTimeout(resolve, 300));
+		const result = Promise.all([getData(), delay()]).then((result) => {
+			result[0].forEach((row) => {
 				this.body.appendChild(row);
-				this.table.appendChild(this.head);
-				this.table.appendChild(this.body);
-				this.appendTableToParent();
 			});
-		}, 300);
+			this.table.appendChild(this.head);
+			this.table.appendChild(this.body);
+			this.appendTableToParent();
+			this.parentDiv.removeChild(loader);
+		})
 	};
 
 	appendTableToParent = () => {
