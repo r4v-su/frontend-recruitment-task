@@ -61,9 +61,6 @@ body::before{
     .paragraph-paragraph{
       max-width: 380px;
     }
-    .popup {
-
-    }
   }
 
   @media (min-width: 1200px) {

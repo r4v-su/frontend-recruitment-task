@@ -175,5 +175,13 @@
     transform-origin: center;
 }
 
+th {
+    padding: 10px;
+
+}
+
+table {
+    margin-top: 2rem;
+}
 
 @import "breakpoints.css";
