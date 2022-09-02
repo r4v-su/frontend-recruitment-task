@@ -80,7 +80,7 @@ export default class mainModule {
     resetCounter = () =>{
         this.clicks = 0;
     }
-	incrementClicks = (e) => {
+	incrementClicks = () => {
 		this.clicks += 1;
 	};
 	makePopup = () => {

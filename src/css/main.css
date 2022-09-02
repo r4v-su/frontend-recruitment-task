@@ -111,7 +111,7 @@
     align-items: flex-start;
     text-align: center;
     font-family: "Roboto", sans-serif;
-    position: fixed;
+    position: absolute;
     z-index: 10;
     top:30vh;
     left: 50%;
@@ -177,11 +177,54 @@
 
 th {
     padding: 10px;
+    background-color: bisque;
 
 }
 
 table {
     margin-top: 2rem;
+    border: 1px solid black
 }
+tr:nth-child(even) {
+    background: #CCC;
+    margin:1rem 0;
+    }
+tr:nth-child(odd) {background: #FFF}
+td {
+    text-align: center;
+    text-justify: center;}
+
+.loader {
+    display: block
+}
+
+.loader{
+    transform: translateX(-50%);
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    position: relative;
+  }
+.loader:after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0) transparent rgb(0, 0, 0) transparent;
+    animation: loader-load 1.2s linear infinite;
+  }
+  @keyframes loader-load {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 
 @import "breakpoints.css";
