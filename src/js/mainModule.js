@@ -6,11 +6,11 @@ export default class mainModule {
 	constructor(moduleConfig) {
         this.moduleConfig = moduleConfig;
 
-		this.clicks = 0;
 		this.parentDiv = moduleConfig.parent;
 
 		this.moduleContainer = this.createModule();
-
+		this.id = moduleConfig.id;
+		this.clicks = JSON.parse(sessionStorage.getItem(`clicks_${this.id}`))
 		this.popup = new Popup(this.clicks, this.resetCounter);
 
 		this.moduleContainer.appendChild(this.image());
@@ -71,24 +71,33 @@ export default class mainModule {
 
 	createModule = () => {
 		const module = document.createElement("div");
-		module.classList.add("module");
-		module.width = this.moduleConfig.moduleWidth;
-		module.height = this.moduleConfig.moduleHeight;
+			module.id = this.moduleConfig.id ? this.moduleConfig.id : 1;
+			module.classList.add("module");
+			module.width = this.moduleConfig.moduleWidth;
+			module.height = this.moduleConfig.moduleHeight;
 
-		return module;
-	};
+			return module;
+		}
+
     resetCounter = () =>{
         this.clicks = 0;
+		let data = JSON.stringify(this.clicks)
+		sessionStorage.setItem(`clicks_${this.id}`, data)
     }
 	incrementClicks = () => {
 		this.clicks += 1;
+		let data = JSON.stringify(this.clicks)
+		sessionStorage.setItem(`clicks_${this.id}`, data)
 	};
 	makePopup = () => {
+		this.clicks = JSON.parse(sessionStorage.getItem(`clicks_${this.id}`))
+		console.log(this.clicks)
 		this.popup = new Popup(this.clicks, this.resetCounter);
 		this.popup.appendPopup();
 	}
 	makeTable = () =>{
 		this.table = new Table(this.popup.popup);
 	}
+
 }
 

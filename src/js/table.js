@@ -68,7 +68,7 @@ export default class Table {
 		this.parentDiv.appendChild(loader);
 
 		const getData = () => this.getData();
-		const delay = () => new Promise((resolve) => setTimeout(resolve, 300));
+		const delay = () => new Promise((resolve) => setTimeout(resolve, 400));
 		const result = Promise.all([getData(), delay()]).then((result) => {
 			result[0].forEach((row) => {
 				this.body.appendChild(row);
