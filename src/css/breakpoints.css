@@ -10,12 +10,20 @@ body::before{
   position: fixed;
   left: 90vw;
 }
+@media (min-width: 276px) {
+  .paragraph-title{
+    margin-left:0;
+}}
+
   @media (min-width: 576px) {
     body::before {
       content: "SM";
     }
     .paragraph-box {
     align-items: flex-start;
+    }
+    .paragraph-title{
+      font-size: 42px;
     }
 
   }
@@ -40,10 +48,14 @@ body::before{
       max-width: 70vw;
     }
     .paragraph-title{
+      margin-left: 0;
       padding:0;
     }
     .table {
       display: table;
+    }
+    .loader {
+      display: inline-block;
     }
 
   }

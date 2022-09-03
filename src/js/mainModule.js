@@ -26,7 +26,7 @@ export default class mainModule {
 		img.height = 330;
 		img.alt = this.moduleConfig.img.alt;
 		img.ariaLabel = img.alt;
-		img.tabIndex = 0;
+		img.tabindex = 0;
 		img.title = this.moduleConfig.img.title;
 
 		return img;
@@ -36,7 +36,7 @@ export default class mainModule {
 		const paragraphBox = document.createElement("div");
 		paragraphBox.classList.add("paragraph-box");
 		paragraphBox.ariaLabel = 'paragraph';
-		paragraphBox.tabIndex = 0;
+		paragraphBox.tabindex = 0;
 		paragraphBox.appendChild(this.title());
 		paragraphBox.appendChild(this.paragraph());
 		paragraphBox.appendChild(this.button());
@@ -45,10 +45,10 @@ export default class mainModule {
 	};
 
 	title = () => {
-		const title = document.createElement("span");
+		const title = document.createElement("h3");
 		title.classList.add("paragraph-title");
 		title.ariaLabel = 'paragraph title';
-		title.tabIndex = 0;
+		title.tabindex = 0;
 		title.title = this.moduleConfig.title;
 		title.innerText = this.moduleConfig.title;
 
@@ -57,10 +57,10 @@ export default class mainModule {
 	};
 
 	paragraph = () => {
-		const paragraph = document.createElement("span");
+		const paragraph = document.createElement("p");
 		paragraph.classList.add("paragraph-paragraph");
-		paragraph.ariaLabel = 'paragraph';
-		paragraph.tabIndex = 0;
+		paragraph.ariaLabel = 'paragraph centents';
+		paragraph.tabindex = 0;
 		paragraph.innerText = this.moduleConfig.paragraph;
 
 		return paragraph;
@@ -69,7 +69,7 @@ export default class mainModule {
 	button = () => {
 		const btn = document.createElement("button");
 		btn.classList.add("app-btn");
-		btn.tabIndex = 0;
+		btn.tabindex = 0;
 		btn.ariaLabel = "button increment counter"
 		btn.title = 'increment clicks';
 		btn.addEventListener("click", () => {
@@ -87,6 +87,9 @@ export default class mainModule {
 		const module = document.createElement("div");
 		module.id = this.moduleConfig.id ? this.moduleConfig.id : 1;
 		module.classList.add("module");
+		module.role = "article";
+		module.ariaLabel = this.moduleConfig.title;
+		module.tabIndex = 0			;
 		window.addEventListener('keydown', ((e) => {
 			if(e.key == "Escape" && this.popup.visible) {
 				this.popup.closePopup();

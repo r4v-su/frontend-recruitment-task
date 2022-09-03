@@ -23,7 +23,9 @@
     box-sizing: border-box;
 }
 .app-container {
-    display: block;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
 }
 .module {
@@ -46,10 +48,11 @@
     align-items: center;
 }
 .paragraph-title {
+    margin-left: 1rem;
     margin-top: 20px;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
-    font-size: 42px;
+    font-size: 32px;
     color: #121212;
 
 }
@@ -96,7 +99,7 @@
 }
 .backdrop {
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     background-color: rgba(0, 0, 0, 0.75);
     width: 100%;
     height: 100vh;
@@ -115,11 +118,14 @@
     text-align: center;
     font-family: "Roboto", sans-serif;
     position: fixed;
-    z-index: 10;
+    z-index: 110;
     top:30vh;
     left: 50%;
     transform: translateX(-50%);
     padding: 1.5rem;
+}
+strong {
+    font-weight: 600;
 }
 .popup-title {
     font-family: "Roboto", sans-serif;
@@ -132,7 +138,7 @@
     cursor: pointer;
     display: block;
     position: absolute;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     top: 20px;
     right: 70px;
@@ -144,7 +150,7 @@
 .popup-close { /*popup close*/
     all:unset;
     position: absolute;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     top: 20px;
     right: 20px;
@@ -208,7 +214,7 @@ td {
 
 .loader{
     transform: translateX(-50%);
-    display: inline-block;
+    display: none;
     width: 80px;
     height: 80px;
     left: 50%;

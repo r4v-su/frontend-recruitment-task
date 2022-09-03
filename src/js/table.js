@@ -17,7 +17,7 @@ export default class Table {
 		heads.forEach((head) => {
 			let th = document.createElement("th");
 			th.innerText = head;
-			th.scope = col;
+			th.scope = 'column';
 			thr.appendChild(th);
 		});
 		thead.appendChild(thr);

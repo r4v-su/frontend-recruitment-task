@@ -2,8 +2,10 @@ export default class Popup {
 	constructor(clicks, resetCounter) {
 		this.resetCounter = resetCounter;
 		this.clicks = clicks;
+		this.clicksText = document.createElement('strong');
+		this.clicksText.innerText = this.clicks;
 		this.title = "Alert!";
-		this.text = `You have clicked ` + clicks + ` times to related button.`;
+		//this.text = `You have clicked ${this.clicksText.innerText} times to related button.`;
 
 		this.visible = false;
 
@@ -36,7 +38,7 @@ export default class Popup {
 		const x = document.createElement("button");
 		x.classList.add("popup-close");
 		x.title = "Close";
-		x.tabIndex = "0";
+		x.tabIndex = 0;
 		x.ariaLabel = "close popup button"
 		x.addEventListener(
 			"click",
@@ -52,7 +54,7 @@ export default class Popup {
 	createResetButton = () => {
 		const x = document.createElement("button");
 		x.classList.add("popup-reset");
-		x.tabIndex = "0";
+		x.tabIndex = 0;
 		x.title = "Reset counter";
 		x.ariaLabel = "reset counter button"
 		x.addEventListener(
@@ -75,15 +77,15 @@ export default class Popup {
 		popup.ariaLabel = ""
 
 
-		const popupTitle = document.createElement("span");
+		const popupTitle = document.createElement("h2");
 		popupTitle.innerText = this.title;
 		popupTitle.ariaLabel = "popup title"
 		popupTitle.tabIndex = 0;
 		popupTitle.classList.add("popup-title");
 
 
-		const popupText = document.createElement("span");
-		popupText.innerText = this.text;
+		const popupText = document.createElement("p");
+		popupText.innerHTML = `You have clicked<strong> ${this.clicksText.innerText} times</strong> to related button.</span></span>`;
 		popupText.ariaLabel = "popup text"
 		popupText.tabIndex = 0;
 		popupText.classList.add("popup-text");
