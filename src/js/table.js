@@ -17,6 +17,7 @@ export default class Table {
 		heads.forEach((head) => {
 			let th = document.createElement("th");
 			th.innerText = head;
+			th.scope = col;
 			thr.appendChild(th);
 		});
 		thead.appendChild(thr);
@@ -46,19 +47,10 @@ export default class Table {
 					tr.innerHTML = `
                     <td>${person.name}</td>
                     <td>${person.email}</td>
-                    <td>${
-						person.address.street +
-						", " +
-						person.address.suite +
-						", " +
-						person.address.city +
-						", " +
-						person.address.zipcode
-					}</td>
+                    <td>${person.address.street +", " +person.address.suite +", " +person.address.city +", " +person.address.zipcode}</td>
                     <td>${person.company.name}</td>`;
 					rows.push(tr);
-				})
-			);
+				}));
 		return rows;
 	};
 
@@ -66,18 +58,14 @@ export default class Table {
 		const loader = document.createElement("div");
 		loader.classList.add("loader");
 		this.parentDiv.appendChild(loader);
-
 		const getData = () => this.getData();
 		const delay = () => new Promise((resolve) => setTimeout(resolve, 400));
 		const result = Promise.all([getData(), delay()]).then((result) => {
-			result[0].forEach((row) => {
-				this.body.appendChild(row);
-			});
+			result[0].forEach((row) => {this.body.appendChild(row)});
 			this.table.appendChild(this.head);
 			this.table.appendChild(this.body);
 			this.appendTableToParent();
-			this.parentDiv.removeChild(loader);
-		})
+			this.parentDiv.removeChild(loader)})
 	};
 
 	appendTableToParent = () => {

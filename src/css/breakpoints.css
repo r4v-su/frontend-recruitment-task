@@ -42,6 +42,9 @@ body::before{
     .paragraph-title{
       padding:0;
     }
+    .table {
+      display: table;
+    }
 
   }
 
