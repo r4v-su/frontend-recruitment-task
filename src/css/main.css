@@ -126,8 +126,9 @@ strong {
 .popup-title {
     font-family: "Roboto", sans-serif;
     margin-bottom: 2rem;
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 .popup-reset {
     all:unset;

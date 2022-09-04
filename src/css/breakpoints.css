@@ -1,35 +1,27 @@
-
-body::before{
-  display: block;
-  background-color: rgb(208, 0, 255);
-  padding: 10px;
-  color: white;
-  font-weight: 900;
-  text-align: left;
-  width: 10vw;
-  position: fixed;
-  left: 90vw;
-}
 @media (min-width: 276px) {
   .paragraph-title{
     margin-left:0;
 }}
 
   @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
+
     .paragraph-box {
     align-items: flex-start;
     }
     .paragraph-title{
       font-size: 42px;
     }
+    .paragraph-title{
+      font-size: 42px;
+    }
+    .popup-title {
+      font-size: 42px;
+    }
   }
 
   @media (min-width: 768px) {
-    body::before {
-      content: "MD";
+    .popup-title{
+      margin-bottom: 2rem;
     }
     .popup{
       padding-top: 2.5rem;
@@ -62,9 +54,6 @@ body::before{
   }
 
   @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
     .module{
       flex-direction: row;
     }
@@ -76,17 +65,5 @@ body::before{
     }
     .paragraph-paragraph{
       max-width: 380px;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
-  }
-
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
     }
   }
