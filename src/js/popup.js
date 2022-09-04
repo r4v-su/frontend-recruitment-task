@@ -5,7 +5,6 @@ export default class Popup {
 		this.clicksText = document.createElement('strong');
 		this.clicksText.innerText = this.clicks;
 		this.title = "Alert!";
-		//this.text = `You have clicked ${this.clicksText.innerText} times to related button.`;
 
 		this.visible = false;
 
@@ -31,16 +30,17 @@ export default class Popup {
 			},
 			{ once: true }
 		);
+
 		return backdrop;
 	};
 
 	createCloseButton = () => {
-		const x = document.createElement("button");
-		x.classList.add("popup-close");
-		x.title = "Close";
-		x.tabIndex = 0;
-		x.ariaLabel = "close popup button"
-		x.addEventListener(
+		const closeBtn = document.createElement("button");
+		closeBtn.classList.add("popup-close");
+		closeBtn.title = "Close";
+		closeBtn.tabIndex = 0;
+		closeBtn.ariaLabel = "close popup button"
+		closeBtn.addEventListener(
 			"click",
 			() => {
 				this.closePopup();
@@ -48,16 +48,16 @@ export default class Popup {
 			{ once: true }
 		);
 
-		return x;
+		return closeBtn;
 	};
 
 	createResetButton = () => {
-		const x = document.createElement("button");
-		x.classList.add("popup-reset");
-		x.tabIndex = 0;
-		x.title = "Reset counter";
-		x.ariaLabel = "reset counter button"
-		x.addEventListener(
+		const resetBtn = document.createElement("button");
+		resetBtn.classList.add("popup-reset");
+		resetBtn.tabIndex = 0;
+		resetBtn.title = "Reset counter";
+		resetBtn.ariaLabel = "reset counter button"
+		resetBtn.addEventListener(
 			"click",
 			() => {
 				this.resetCounter();
@@ -66,7 +66,7 @@ export default class Popup {
 			{ once: true }
 		);
 
-		return x;
+		return resetBtn;
 	};
 
 	createPopup = () => {
@@ -76,16 +76,14 @@ export default class Popup {
 		popup.ariaLive = true;
 		popup.ariaLabel = ""
 
-
 		const popupTitle = document.createElement("h2");
 		popupTitle.innerText = this.title;
 		popupTitle.ariaLabel = "popup title"
 		popupTitle.tabIndex = 0;
 		popupTitle.classList.add("popup-title");
 
-
 		const popupText = document.createElement("p");
-		popupText.innerHTML = `You have clicked<strong> ${this.clicksText.innerText} times</strong> to related button.</span></span>`;
+		popupText.innerHTML = `You have clicked<strong> ${this.clicksText.innerText} times</strong> to related button.`;
 		popupText.ariaLabel = "popup text"
 		popupText.tabIndex = 0;
 		popupText.classList.add("popup-text");

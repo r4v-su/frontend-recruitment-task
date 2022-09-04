@@ -1,7 +1,6 @@
 @import "reset.css";
 @import "breakpoints.css";
 
-
 .noselect, .x, .popup-reset, .backdrop{
     -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -16,8 +15,6 @@
               user-drag: none;
               overflow: hidden;
   }
-
-
 
 * {
     box-sizing: border-box;
@@ -37,7 +34,7 @@
     flex-direction: column
 }
 .app-img{
-    max-width: 100vw;
+    max-width: 505px;
     height: auto;
 }
 .paragraph-box {
@@ -48,8 +45,8 @@
     align-items: center;
 }
 .paragraph-title {
-    margin-left: 1rem;
     margin-top: 20px;
+    margin-left: 1rem;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-size: 32px;
@@ -88,7 +85,6 @@
     content: "Button";
     font-family: "Roboto", sans-serif;
 }
-
 .module {
     margin-top: 2.5rem;
     width: 1440px;
@@ -124,9 +120,11 @@
     transform: translateX(-50%);
     padding: 1.5rem;
 }
+
 strong {
     font-weight: 600;
 }
+
 .popup-title {
     font-family: "Roboto", sans-serif;
     margin-bottom: 2rem;
@@ -239,6 +237,5 @@ td {
       transform: rotate(360deg);
     }
   }
-
 
 @import "breakpoints.css";

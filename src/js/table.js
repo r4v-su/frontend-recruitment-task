@@ -33,7 +33,6 @@ export default class Table {
 	tableTable = () => {
 		const table = document.createElement("table");
 		table.classList.add("table");
-
 		return table;
 	};
 

@@ -21,9 +21,7 @@ export default class mainModule {
 	image = function () {
 		const img = document.createElement("img");
 		img.classList.add("noselect", "app-img");
-		img.src = this.moduleConfig.img.url;
-		img.width = 505;
-		img.height = 330;
+		img.srcset = this.moduleConfig.img.srcset;
 		img.alt = this.moduleConfig.img.alt;
 		img.ariaLabel = img.alt;
 		img.tabindex = 0;
@@ -52,14 +50,13 @@ export default class mainModule {
 		title.title = this.moduleConfig.title;
 		title.innerText = this.moduleConfig.title;
 
-
 		return title;
 	};
 
 	paragraph = () => {
 		const paragraph = document.createElement("p");
 		paragraph.classList.add("paragraph-paragraph");
-		paragraph.ariaLabel = 'paragraph centents';
+		paragraph.ariaLabel = 'paragraph contents';
 		paragraph.tabindex = 0;
 		paragraph.innerText = this.moduleConfig.paragraph;
 
@@ -89,7 +86,7 @@ export default class mainModule {
 		module.classList.add("module");
 		module.role = "article";
 		module.ariaLabel = this.moduleConfig.title;
-		module.tabIndex = 0			;
+		module.tabIndex = 0;
 		window.addEventListener('keydown', ((e) => {
 			if(e.key == "Escape" && this.popup.visible) {
 				this.popup.closePopup();
@@ -101,7 +98,6 @@ export default class mainModule {
 				this.popup.resetCounter();
 			}
 		}))
-
 
 		return module;
 	};
