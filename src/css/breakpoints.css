@@ -24,7 +24,6 @@ body::before{
     }
     .paragraph-title{
       font-size: 42px;
-      margin-left: 1rem;
     }
   }
 
@@ -43,11 +42,13 @@ body::before{
       right: 40px;
     }
     .paragraph-paragraph{
+      margin-top: 20px;
       padding: 0;
       max-width: 70vw;
     }
     .paragraph-title{
       padding:0;
+      margin-left: 0rem;
     }
     .table {
       display: table;
